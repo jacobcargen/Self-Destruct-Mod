@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Self Destruct Mod", "Self Destruct Mod.csproj", "{BDDF956A-6AD1-40F8-9374-3A22EB0A9EDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDDF956A-6AD1-40F8-9374-3A22EB0A9EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDDF956A-6AD1-40F8-9374-3A22EB0A9EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDDF956A-6AD1-40F8-9374-3A22EB0A9EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDDF956A-6AD1-40F8-9374-3A22EB0A9EDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D4A0369-A584-410E-B484-3A57D8E7974C}
+	EndGlobalSection
+EndGlobal
