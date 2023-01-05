@@ -8,26 +8,55 @@ using UnityEngine;
 namespace Self_Destruct_Mod
 {
     [KSPAddon(KSPAddon.Startup.Flight, false)]
-    public class SelfDestructController
+    public class SelfDestructController : MonoBehaviour
     {
-        private bool selfDestruct;
+        private Vessel ves;
+        private KeyCode modifierKey = KeyCode.LeftAlt;
+        private KeyCode explodeKey = KeyCode.Delete;
 
-        public void Start()
+        private bool modifierPressed;
+
+        private void Start()
         {
             Debug.Log("Self Destruct Ready!");
+            ves = FlightGlobals.ActiveVessel;
+
+            // Check if pressed at the start
+            if (Input.GetKey(modifierKey))
+            {
+                modifierPressed = true;
+            }
         }
-        public void Update()
+        private void Update()
         {
-            // If player tries to self destruct
-            selfDestruct = Input.GetKeyDown(KeyCode.Backspace) && Input.GetKey(KeyCode.LeftControl)
-                && Input.GetKey(KeyCode.RightControl);
-            // Self destruct the ship
-            if (selfDestruct) SelfDestruct();
+            // Modifier Press
+            if (Input.GetKeyDown(modifierKey))
+            {
+                // Disable abort while holding left alt
+                modifierPressed = true;
+            }
+            // If self destruct key and modifier
+            if (modifierPressed && Input.GetKeyDown(explodeKey))
+            {
+                // Self destruct the ship
+                SelfDestruct();
+            }
+            // Modifier Release
+            if (Input.GetKeyUp(modifierKey))
+            {
+                // Revert once alt is released
+                modifierPressed = false;
+            }
         }
         private void SelfDestruct()
         {
-            Vessel ves = FlightGlobals.ActiveVessel;
-            Debug.Log("Self Destruct!");
+            Debug.Log("Self Destructing!");
+
+            for (int i = ves.parts.Count - 1; i >= 0; i--)
+            {
+                Part part = ves.parts[i];
+                part.explode();
+            }
         }
     }
 }
