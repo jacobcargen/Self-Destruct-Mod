@@ -65,6 +65,8 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(TargetPath)" "$(ProjectDir)\GameData\Self Destruct Mod"
+copy "$(ProjectDir)\LICENSE.txt" "$(ProjectDir)\GameData\Self Destruct Mod"
+copy "$(ProjectDir)\README.md" "$(ProjectDir)\GameData\Self Destruct Mod"
 call "$(ProjectDir)\build.bat"</PostBuildEvent>
   </PropertyGroup>
 </Project>
