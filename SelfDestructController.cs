@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Self_Destruct_Mod
 {
     [KSPAddon(KSPAddon.Startup.Flight, false)]
     public class SelfDestructController : MonoBehaviour
     {
+        public static string version = "1.2";
         private Vessel ves;
         private KeyCode modifierKey = KeyCode.LeftAlt;
         private KeyCode explodeKey = KeyCode.Delete;
@@ -18,7 +14,8 @@ namespace Self_Destruct_Mod
 
         private void Start()
         {
-            Debug.Log("Self Destruct Ready!");
+            Debug.Log($"Self Destruct Ready! Version: {version}");
+
             ves = FlightGlobals.ActiveVessel;
 
             // Check if pressed at the start
@@ -51,7 +48,7 @@ namespace Self_Destruct_Mod
         private void SelfDestruct()
         {
             Debug.Log("Self Destructing!");
-
+            // Delete every part on ship, explodes the control module last
             for (int i = ves.parts.Count - 1; i >= 0; i--)
             {
                 Part part = ves.parts[i];
