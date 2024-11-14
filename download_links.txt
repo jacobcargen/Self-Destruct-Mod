@@ -1,0 +1,1 @@
+Curseforge="https://www.curseforge.com/kerbal/ksp-mods/self-destruct"
